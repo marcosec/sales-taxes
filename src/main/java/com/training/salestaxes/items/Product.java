@@ -1,8 +1,5 @@
 package com.training.salestaxes.items;
 
-/**
- * Created by marcosec on 10/08/16.
- */
 public class Product
 {
 	private String name;
@@ -11,9 +8,14 @@ public class Product
 
 	public Product(String name, double price)
 	{
+		this(name,price,false);
+	}
+
+	public Product(String name, double price, boolean imported)
+	{
 		this.name = name;
 		this.price = price;
-		this.imported = false;
+		this.imported = imported;
 	}
 
 	public String getName()
@@ -29,11 +31,6 @@ public class Product
 	public double getPrice()
 	{
 		return price;
-	}
-
-	public boolean getImported()
-	{
-		return imported;
 	}
 
 	public boolean isImported()

@@ -22,6 +22,16 @@ public class ProductTest
 
 		assertEquals("book", product.getName());
 		assertEquals(10.0d, product.getPrice(),0);
-		assertEquals(false, product.getImported());
+		assertEquals(false, product.isImported());
+	}
+
+	@Test
+	public void shouldSetProductBasicInfo_importedProducts()
+	{
+		Product product = new Product("book",10.0d,true);
+
+		assertEquals("book", product.getName());
+		assertEquals(10.0d, product.getPrice(),0);
+		assertEquals(true, product.isImported());
 	}
 }
