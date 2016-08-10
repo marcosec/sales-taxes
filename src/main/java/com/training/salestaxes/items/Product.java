@@ -1,29 +1,23 @@
 package com.training.salestaxes.items;
 
-public class Product
+public class Product implements ShopItem
 {
 	private String name;
 	private double price;
 	private boolean imported;
-	private boolean exemptFromTaxes;
 
 	public Product(String name, double price)
 	{
-		this(name,price,false,false);
+		this(name,price,false);
 	}
 
 	public Product(String name, double price, boolean imported)
 	{
-		this(name,price,imported,false);
-	}
-
-	public Product(String name, double price, boolean imported, boolean exempt)
-	{
 		this.name = name;
 		this.price = price;
 		this.imported = imported;
-		this.exemptFromTaxes = exempt;
 	}
+
 
 	public String getName()
 	{
@@ -52,11 +46,6 @@ public class Product
 
 	public boolean isExemptFromTaxes()
 	{
-		return exemptFromTaxes;
-	}
-
-	public void setExemptFromTaxes(boolean exemptFromTaxes)
-	{
-		this.exemptFromTaxes = exemptFromTaxes;
+		return false;
 	}
 }

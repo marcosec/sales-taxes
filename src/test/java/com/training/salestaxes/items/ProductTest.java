@@ -34,18 +34,10 @@ public class ProductTest
 	}
 
 	@Test
-	public void shouldSetProductBasicInfo_exemptFromTaxesIsFalseByDefault()
+	public void shouldNotBeExemptFromTaxes()
 	{
 		Product product = new Product("book",10.0d);
 
 		assertEquals(false, product.isExemptFromTaxes());
-	}
-
-	@Test
-	public void shouldSetProductBasicInfo_exemptFromTaxesProducts()
-	{
-		Product product = new Product("book",10.0d,true,true);
-
-		assertEquals(true, product.isExemptFromTaxes());
 	}
 }
