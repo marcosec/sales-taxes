@@ -32,4 +32,20 @@ public class ProductTest
 		assertEquals(10.0d, product.getPrice(),0);
 		assertEquals(true, product.isImported());
 	}
+
+	@Test
+	public void shouldSetProductBasicInfo_exemptFromTaxesIsFalseByDefault()
+	{
+		Product product = new Product("book",10.0d);
+
+		assertEquals(false, product.isExemptFromTaxes());
+	}
+
+	@Test
+	public void shouldSetProductBasicInfo_exemptFromTaxesProducts()
+	{
+		Product product = new Product("book",10.0d,true,true);
+
+		assertEquals(true, product.isExemptFromTaxes());
+	}
 }
