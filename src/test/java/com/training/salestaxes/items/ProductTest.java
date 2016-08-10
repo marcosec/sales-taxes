@@ -20,8 +20,6 @@ public class ProductTest
 	{
 		Product product = new Product("book",10.0d);
 
-		assertEquals("book", product.getName());
-		assertEquals(10.0d, product.getPrice(),0);
 		assertEquals(false, product.isImported());
 	}
 
