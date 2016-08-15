@@ -4,12 +4,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class FoodTest
+public class MedicalTest
 {
 	@Test
 	public void shouldBeExemptFromTaxes()
 	{
-		Product product = new Food("food",10.0d);
+		Product product = new Medical("medical",10.0d);
 
 		assertEquals(true, product.isExemptFromTaxes());
 	}
@@ -17,7 +17,7 @@ public class FoodTest
 	@Test
 	public void canBeImported()
 	{
-		Product product = new Food("food",10.0d,true);
+		Product product = new Medical("medical",10.0d,true);
 
 		assertEquals(true, product.isImported());
 	}
