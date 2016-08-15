@@ -1,8 +1,6 @@
 package com.training.salestaxes.items;
 
-/**
- * Created by marcosec on 15/08/16.
- */
+
 public class Medical extends Product
 {
 	public Medical(String name, double price)

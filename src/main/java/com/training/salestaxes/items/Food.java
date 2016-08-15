@@ -1,8 +1,5 @@
 package com.training.salestaxes.items;
 
-/**
- * Created by marcosec on 15/08/16.
- */
 public class Food extends Product
 {
 	public Food(String name, double price)
