@@ -40,4 +40,14 @@ public class ImportTaxCalculationTest
 
 		assertEquals(0.0d, taxValue, 0);
 	}
+
+	@Test
+	public void shouldRoundTaxValueToTheNearestHalf()
+	{
+		Product importedProduct = new Book("imported-product",10.99d,true);
+
+		double taxValue = importTaxCalculation.calculateTaxesOn(importedProduct);
+
+		assertEquals(0.55d, taxValue, 0);
+	}
 }

@@ -59,4 +59,15 @@ public class SalesTaxCalculationTest
 
 		assertEquals(0.0d, taxValue, 0);
 	}
+
+	@Test
+	public void shouldRoundTaxValueToTheNearestHalf()
+	{
+		Product notExemptProduct = new Product("not-exempt-product",14.99d);
+
+		double taxValue = salesTaxCalculation.calculateTaxesOn(notExemptProduct);
+
+
+		assertEquals(1.50d, taxValue, 0);
+	}
 }
