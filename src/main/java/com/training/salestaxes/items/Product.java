@@ -44,4 +44,8 @@ public class Product
 		this.imported = imported;
 	}
 
+	public boolean isExemptFromTaxes()
+	{
+		return false;
+	}
 }

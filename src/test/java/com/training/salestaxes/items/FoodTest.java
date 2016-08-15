@@ -2,15 +2,14 @@ package com.training.salestaxes.items;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-
-public class BookTest
+public class FoodTest
 {
 	@Test
 	public void shouldBeExemptFromTaxes()
 	{
-		Product product = new Book("book",10.0d);
+		Product product = new Food("food",10.0d);
 
 		assertEquals(true, product.isExemptFromTaxes());
 	}
@@ -18,7 +17,7 @@ public class BookTest
 	@Test
 	public void canBeImported()
 	{
-		Product product = new Book("book",10.0d,true);
+		Product product = new Food("book",10.0d,true);
 
 		assertEquals(true, product.isImported());
 	}
