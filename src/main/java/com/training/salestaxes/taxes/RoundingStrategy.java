@@ -6,7 +6,7 @@ public class RoundingStrategy
 {
 	public RoundingStrategy()
 	{
-		
+
 	}
 
 	public static double roundUp(double price, int rate)

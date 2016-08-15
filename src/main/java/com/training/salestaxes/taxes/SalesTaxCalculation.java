@@ -7,13 +7,7 @@ public class SalesTaxCalculation implements TaxCalculation
 {
 	public double calculateTaxesOn(Product product)
 	{
-		return product.isExemptFromTaxes() ? 0.0d : roundUp(product);
+		return product.isExemptFromTaxes() ? 0.0d : RoundingStrategy.roundUp(product.getPrice(),10);
 	}
 
-	private double roundUp(Product product)
-	{
-		BigDecimal taxValue = new BigDecimal(product.getPrice() * 10 / 100);
-		BigDecimal taxValueRoundedUp = taxValue.setScale(2, BigDecimal.ROUND_HALF_UP);
-		return taxValueRoundedUp.doubleValue();
-	}
 }
