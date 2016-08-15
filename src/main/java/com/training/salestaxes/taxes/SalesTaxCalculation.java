@@ -2,7 +2,7 @@ package com.training.salestaxes.taxes;
 
 import com.training.salestaxes.items.Product;
 
-public class SalesTaxCalculation
+public class SalesTaxCalculation implements TaxCalculation
 {
 	public double calculateTaxesOn(Product product)
 	{

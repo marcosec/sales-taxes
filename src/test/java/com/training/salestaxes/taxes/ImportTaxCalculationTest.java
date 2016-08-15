@@ -13,7 +13,7 @@ import com.training.salestaxes.items.Product;
 
 public class ImportTaxCalculationTest
 {
-	private ImportTaxCalculation importTaxCalculation;
+	private TaxCalculation importTaxCalculation;
 
 	@Before
 	public void setup()

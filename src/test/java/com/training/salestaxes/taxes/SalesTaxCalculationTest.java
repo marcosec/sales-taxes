@@ -12,7 +12,7 @@ import com.training.salestaxes.items.Product;
 
 public class SalesTaxCalculationTest
 {
-	private SalesTaxCalculation salesTaxCalculation;
+	private TaxCalculation salesTaxCalculation;
 
 	@Before
 	public void setup()
