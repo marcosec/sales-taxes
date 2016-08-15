@@ -28,14 +28,11 @@ public class BasketCalculation
 		for (BasketEntry entry: basketEntries)
 		{
 			Product item = entry.getProduct();
-			result += item.getPrice() * entry.getQuantity();
-			for (TaxCalculation taxCalculation : taxCalculationStrategies)
-			{
-				result += taxCalculation.calculateTaxesOn(item);
-			}
+			result = item.getPrice() * entry.getQuantity() + applyTaxes(result, item);
 		}
 		return RoundingStrategy.roundTwoDecimal(result);
 	}
+
 
 	public double calculateTotalTaxes(List<BasketEntry> basketEntries)
 	{
@@ -43,11 +40,17 @@ public class BasketCalculation
 		for (BasketEntry entry: basketEntries)
 		{
 			Product item = entry.getProduct();
-			for (TaxCalculation taxCalculation : taxCalculationStrategies)
-			{
-				result += taxCalculation.calculateTaxesOn(item);
-			}
+			result = applyTaxes(result, item);
 		}
 		return RoundingStrategy.roundTwoDecimal(result);
+	}
+
+	private double applyTaxes(double result, Product item)
+	{
+		for (TaxCalculation taxCalculation : taxCalculationStrategies)
+		{
+			result += taxCalculation.calculateTaxesOn(item);
+		}
+		return result;
 	}
 }
