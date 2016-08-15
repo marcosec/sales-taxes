@@ -1,6 +1,6 @@
 package com.training.salestaxes.items;
 
-public class Book extends Product
+public class Book extends Product implements ShopItem
 {
 	public Book(String name, double price)
 	{
@@ -12,7 +12,6 @@ public class Book extends Product
 		super(name, price, imported);
 	}
 
-	@Override
 	public boolean isExemptFromTaxes()
 	{
 		return true;

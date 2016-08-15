@@ -1,6 +1,6 @@
 package com.training.salestaxes.items;
 
-public class Product implements ShopItem
+public class Product
 {
 	private String name;
 	private double price;
@@ -44,8 +44,4 @@ public class Product implements ShopItem
 		this.imported = imported;
 	}
 
-	public boolean isExemptFromTaxes()
-	{
-		return false;
-	}
 }

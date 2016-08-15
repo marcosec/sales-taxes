@@ -32,12 +32,4 @@ public class ProductTest
 		assertEquals(10.0d, product.getPrice(),0);
 		assertEquals(true, product.isImported());
 	}
-
-	@Test
-	public void shouldNotBeExemptFromTaxes()
-	{
-		Product product = new Product("book",10.0d);
-
-		assertEquals(false, product.isExemptFromTaxes());
-	}
 }
