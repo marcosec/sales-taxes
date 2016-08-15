@@ -65,4 +65,20 @@ public class BasketTest
 
 		assertEquals(29.83d, basket.totalPrice(), 0);
 	}
+
+	@Test
+	public void shouldReturnBasketTotalTaxPrice_input1()
+	{
+		Product musicCd = new Product("music cd", 14.99d);
+		Product book = new Book("book", 12.49d);
+		Product chocolate = new Food("chocolate bar", 0.85d);
+
+		BasketEntry entry1 = new BasketEntry(1, musicCd);
+		BasketEntry entry2 = new BasketEntry(1, book);
+		BasketEntry entry3 = new BasketEntry(1, chocolate);
+
+		basket.addEntry(Arrays.asList(entry1,entry2,entry3));
+
+		assertEquals(1.50d, basket.totalTaxes(), 0);
+	}
 }

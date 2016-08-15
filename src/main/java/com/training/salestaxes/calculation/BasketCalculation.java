@@ -36,4 +36,18 @@ public class BasketCalculation
 		}
 		return RoundingStrategy.roundTwoDecimal(result);
 	}
+
+	public double calculateTotalTaxes(List<BasketEntry> basketEntries)
+	{
+		double result = 0d;
+		for (BasketEntry entry: basketEntries)
+		{
+			Product item = entry.getProduct();
+			for (TaxCalculation taxCalculation : taxCalculationStrategies)
+			{
+				result += taxCalculation.calculateTaxesOn(item);
+			}
+		}
+		return RoundingStrategy.roundTwoDecimal(result);
+	}
 }

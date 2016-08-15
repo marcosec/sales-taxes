@@ -45,4 +45,9 @@ public class Basket
 	{
 		return basketCalculation.calculateTotalPrice(getBasketEntries());
 	}
+
+	public double totalTaxes()
+	{
+		return basketCalculation.calculateTotalTaxes(getBasketEntries());
+	}
 }
