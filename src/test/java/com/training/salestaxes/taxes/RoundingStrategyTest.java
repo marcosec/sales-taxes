@@ -39,4 +39,12 @@ public class RoundingStrategyTest
 
 		assertEquals(1.42d, roundedValue, 0);
 	}
+
+	@Test
+	public void shouldTruncateToTwoDecimalDigits()
+	{
+		double roundedValue = roundingStrategy.roundTwoDecimal(14.233333d);
+
+		assertEquals(14.23d, roundedValue, 0);
+	}
 }
