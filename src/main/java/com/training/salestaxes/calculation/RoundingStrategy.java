@@ -14,19 +14,18 @@ public class RoundingStrategy
 
 	public static double roundUp(double price, int rate)
 	{
-		return applyOn(price * rate / 100);
+		double val = price * rate / 100;
+		return applyOn(val);
 	}
 
 
 	public static double roundTwoDecimal(double price)
 	{
-		return applyOn(price);
+		return Math.floor(price * 100) / 100.0;
 	}
 
 	private static double applyOn(double val)
 	{
-		BigDecimal taxValue = new BigDecimal(val);
-		BigDecimal taxValueRoundedUp = taxValue.setScale(2, BigDecimal.ROUND_HALF_UP);
-		return taxValueRoundedUp.doubleValue();
+		return Math.round(val * 20) / 20.0;
 	}
 }

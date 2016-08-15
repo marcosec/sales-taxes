@@ -37,7 +37,7 @@ public class RoundingStrategyTest
 	{
 		double roundedValue = roundingStrategy.roundUp(14.23d, 10);
 
-		assertEquals(1.42d, roundedValue, 0);
+		assertEquals(1.4d, roundedValue, 0);
 	}
 
 	@Test
@@ -46,5 +46,13 @@ public class RoundingStrategyTest
 		double roundedValue = roundingStrategy.roundTwoDecimal(14.233333d);
 
 		assertEquals(14.23d, roundedValue, 0);
+	}
+
+	@Test
+	public void test()
+	{
+		double roundedValue = roundingStrategy.roundUp(11.25d, 5);
+
+		assertEquals(0.6d, roundedValue, 0);
 	}
 }
