@@ -1,4 +1,4 @@
-package com.training.salestaxes.taxes;
+package com.training.salestaxes.calculation;
 
 
 import static org.junit.Assert.assertEquals;
@@ -6,9 +6,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.training.salestaxes.calculation.TaxCalculation;
 import com.training.salestaxes.items.Book;
-import com.training.salestaxes.items.Food;
-import com.training.salestaxes.items.Medical;
 import com.training.salestaxes.items.Product;
 
 public class ImportTaxCalculationTest

@@ -1,6 +1,5 @@
-package com.training.salestaxes.taxes;
+package com.training.salestaxes.calculation;
 
-import java.math.BigDecimal;
 import com.training.salestaxes.items.Product;
 
 public class ImportTaxCalculation implements TaxCalculation

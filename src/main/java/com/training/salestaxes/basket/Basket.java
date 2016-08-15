@@ -2,11 +2,13 @@ package com.training.salestaxes.basket;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.training.salestaxes.calculation.ImportTaxCalculation;
+import com.training.salestaxes.calculation.RoundingStrategy;
+import com.training.salestaxes.calculation.SalesTaxCalculation;
+import com.training.salestaxes.calculation.TaxCalculation;
 import com.training.salestaxes.items.Product;
-import com.training.salestaxes.taxes.ImportTaxCalculation;
-import com.training.salestaxes.taxes.RoundingStrategy;
-import com.training.salestaxes.taxes.SalesTaxCalculation;
-import com.training.salestaxes.taxes.TaxCalculation;
+
 
 public class Basket
 {
@@ -48,7 +50,7 @@ public class Basket
 		for (BasketEntry entry: basketEntries)
 		{
 			Product item = entry.getProduct();
-			result += item.getPrice();
+			result += item.getPrice() * entry.getQuantity();
 			for (TaxCalculation taxCalculation : taxCalculationStrategies)
 			{
 				result += taxCalculation.calculateTaxesOn(item);

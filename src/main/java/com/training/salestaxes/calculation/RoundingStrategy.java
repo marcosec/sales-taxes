@@ -1,4 +1,4 @@
-package com.training.salestaxes.taxes;
+package com.training.salestaxes.calculation;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
