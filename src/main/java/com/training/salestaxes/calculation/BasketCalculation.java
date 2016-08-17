@@ -1,5 +1,6 @@
 package com.training.salestaxes.calculation;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import com.training.salestaxes.basket.BasketEntry;
@@ -24,33 +25,34 @@ public class BasketCalculation
 
 	public double calculateTotalPrice(List<BasketEntry> basketEntries)
 	{
-		double result = 0d;
+		BigDecimal result = BigDecimal.ZERO;
 		for (BasketEntry entry: basketEntries)
 		{
 			Product item = entry.getProduct();
-			result += item.getPrice() * entry.getQuantity() + applyTaxes(item);
+			BigDecimal pricePerUnit = BigDecimal.valueOf(item.getPrice()).multiply(BigDecimal.valueOf(entry.getQuantity()));
+			result = result.add(pricePerUnit.add(applyTaxes(item)));
 		}
-		return RoundingStrategy.roundTwoDecimal(result);
+		return result.doubleValue();
 	}
 
 
 	public double calculateTotalTaxes(List<BasketEntry> basketEntries)
 	{
-		double result = 0d;
+		BigDecimal result = BigDecimal.ZERO;
 		for (BasketEntry entry: basketEntries)
 		{
 			Product item = entry.getProduct();
-			result += applyTaxes(item);
+			result = result.add(applyTaxes(item));
 		}
-		return result;
+		return result.doubleValue();
 	}
 
-	private double applyTaxes(Product item)
+	private BigDecimal applyTaxes(Product item)
 	{
-		double result = 0d;
+		BigDecimal result = BigDecimal.ZERO;
 		for (TaxCalculation taxCalculation : taxCalculationStrategies)
 		{
-			result += taxCalculation.calculateTaxesOn(item);
+			result = result.add(BigDecimal.valueOf(taxCalculation.calculateTaxesOn(item)));
 		}
 		return result;
 	}

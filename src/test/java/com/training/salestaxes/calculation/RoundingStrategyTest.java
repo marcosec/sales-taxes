@@ -25,23 +25,15 @@ public class RoundingStrategyTest
 	}
 
 	@Test
-	public void shouldRoundToNearestHalf_Equals()
+	public void shouldRoundToNearestHalf_Down()
 	{
-		double roundedValue = roundingStrategy.roundUp(14.5d, 10);
+		double roundedValue = roundingStrategy.roundUp(14.21d, 10);
 
 		assertEquals(1.45d, roundedValue, 0);
 	}
 
 	@Test
-	public void shouldRoundToNearestHalf_Down()
-	{
-		double roundedValue = roundingStrategy.roundUp(14.23d, 10);
-
-		assertEquals(1.4d, roundedValue, 0);
-	}
-
-	@Test
-	public void shouldTruncateToTwoDecimalDigits()
+	public void shouldTruncateToTwoDecimalDigits_halfDown()
 	{
 		double roundedValue = roundingStrategy.roundTwoDecimal(14.233333d);
 
@@ -49,10 +41,10 @@ public class RoundingStrategyTest
 	}
 
 	@Test
-	public void test()
+	public void shouldTruncateToTwoDecimalDigits_halfUp()
 	{
-		double roundedValue = roundingStrategy.roundUp(11.25d, 5);
+		double roundedValue = roundingStrategy.roundTwoDecimal(14.23854d);
 
-		assertEquals(0.6d, roundedValue, 0);
+		assertEquals(14.24d, roundedValue, 0);
 	}
 }

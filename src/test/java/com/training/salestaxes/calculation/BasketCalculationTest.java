@@ -80,7 +80,7 @@ public class BasketCalculationTest
 	public void shouldReturnBasketTotalPrice_input3()
 	{
 		Product importedChocolate = new Food("imported chocolate", 11.25d,true);
-		Product importedPerfume = new Product("book", 27.99d,true);
+		Product importedPerfume = new Product("imported perfume", 27.99d,true);
 		Product bottlePerfume = new Product("bottle perfume", 18.99d);
 		Product pills = new Medical("headache pills", 9.75d);
 
@@ -96,7 +96,7 @@ public class BasketCalculationTest
 	public void shouldReturnBasketTotalTaxPrice_input3()
 	{
 		Product importedChocolate = new Food("imported chocolate", 11.25d,true);
-		Product importedPerfume = new Product("book", 27.99d,true);
+		Product importedPerfume = new Product("imported perfume", 27.99d,true);
 		Product bottlePerfume = new Product("bottle perfume", 18.99d);
 		Product pills = new Medical("headache pills", 9.75d);
 
