@@ -9,25 +9,25 @@ public class RoundingStrategy
 	{
 	}
 
-	public static double roundUp(double price, int rate)
+	public static double roundUp(BigDecimal price, int rate)
 	{
-		BigDecimal salesTax = new BigDecimal(price).multiply(new BigDecimal(rate)).divide(new BigDecimal("100"));
+		BigDecimal salesTax = price.multiply(BigDecimal.valueOf(rate)).divide(BigDecimal.valueOf(100));
 		return applyOn(salesTax).doubleValue();
 	}
 
 
 	public static double roundTwoDecimal(double price)
 	{
-		BigDecimal bigDecimal = new BigDecimal(price);
+		BigDecimal bigDecimal = BigDecimal.valueOf(price);
 		BigDecimal bigDecimal1 = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP);
 		return bigDecimal1.doubleValue();
 	}
 
 
 	private static BigDecimal applyOn(BigDecimal value) {
-		BigDecimal divisor = new BigDecimal("0.05");
+		BigDecimal divisor = BigDecimal.valueOf(0.05);
 		value = value.divide(divisor);
-		value = new BigDecimal(Math.ceil(value.doubleValue()));
+		value = BigDecimal.valueOf(Math.ceil(value.doubleValue()));
 		value= value.multiply(divisor);
 		return value;
 	}

@@ -29,7 +29,7 @@ public class BasketCalculation
 		for (BasketEntry entry: basketEntries)
 		{
 			Product item = entry.getProduct();
-			BigDecimal pricePerUnit = BigDecimal.valueOf(item.getPrice()).multiply(BigDecimal.valueOf(entry.getQuantity()));
+			BigDecimal pricePerUnit = item.getPrice().multiply(BigDecimal.valueOf(entry.getQuantity()));
 			result = result.add(pricePerUnit.add(applyTaxes(item)));
 		}
 		return result.doubleValue();

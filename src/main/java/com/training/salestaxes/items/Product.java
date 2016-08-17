@@ -1,9 +1,11 @@
 package com.training.salestaxes.items;
 
+import java.math.BigDecimal;
+
 public class Product
 {
 	private String name;
-	private double price;
+	private BigDecimal price;
 	private boolean imported;
 
 	public Product(String name, double price)
@@ -14,7 +16,7 @@ public class Product
 	public Product(String name, double price, boolean imported)
 	{
 		this.name = name;
-		this.price = price;
+		this.price = BigDecimal.valueOf(price);
 		this.imported = imported;
 	}
 
@@ -29,7 +31,7 @@ public class Product
 		this.name = name;
 	}
 
-	public double getPrice()
+	public BigDecimal getPrice()
 	{
 		return price;
 	}
