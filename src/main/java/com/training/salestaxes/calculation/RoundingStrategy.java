@@ -27,7 +27,7 @@ public class RoundingStrategy
 	private static BigDecimal applyOn(BigDecimal value) {
 		BigDecimal divisor = BigDecimal.valueOf(0.05);
 		value = value.divide(divisor);
-		value = BigDecimal.valueOf(Math.ceil(value.doubleValue()));
+		value = value.setScale(0,BigDecimal.ROUND_CEILING);
 		value= value.multiply(divisor);
 		return value;
 	}
