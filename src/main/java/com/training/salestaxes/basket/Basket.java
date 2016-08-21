@@ -1,5 +1,6 @@
 package com.training.salestaxes.basket;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,8 +47,13 @@ public class Basket
 		return basketCalculation.calculateTotalPrice(getBasketEntries());
 	}
 
-	public double totalTaxes()
+	public BigDecimal totalTaxes()
 	{
 		return basketCalculation.calculateTotalTaxes(getBasketEntries());
+	}
+
+	public BigDecimal totalPriceForEntry(BasketEntry entry)
+	{
+		return basketCalculation.calculateTotalPriceForEntry(entry);
 	}
 }

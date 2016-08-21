@@ -36,7 +36,7 @@ public class BasketCalculation
 	}
 
 
-	public double calculateTotalTaxes(List<BasketEntry> basketEntries)
+	public BigDecimal calculateTotalTaxes(List<BasketEntry> basketEntries)
 	{
 		BigDecimal result = BigDecimal.ZERO;
 		for (BasketEntry entry: basketEntries)
@@ -44,12 +44,13 @@ public class BasketCalculation
 			Product item = entry.getProduct();
 			result = result.add(applyTaxes(item));
 		}
-		return result.doubleValue();
+		return result;
 	}
 
 	private BigDecimal applyTaxes(Product item)
 	{
 		BigDecimal result = BigDecimal.ZERO;
+		result = result.setScale(2, BigDecimal.ROUND_HALF_UP);
 		for (TaxCalculation taxCalculation : taxCalculationStrategies)
 		{
 			result = result.add(BigDecimal.valueOf(taxCalculation.calculateTaxesOn(item)));
@@ -57,8 +58,8 @@ public class BasketCalculation
 		return result;
 	}
 
-	public double calculateTotalPriceForEntry(BasketEntry entry)
+	public BigDecimal calculateTotalPriceForEntry(BasketEntry entry)
 	{
-		return entry.getProduct().getPrice().add(applyTaxes(entry.getProduct())).doubleValue();
+		return entry.getProduct().getPrice().add(applyTaxes(entry.getProduct()));
 	}
 }

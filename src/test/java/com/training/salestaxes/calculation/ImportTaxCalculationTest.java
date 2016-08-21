@@ -6,7 +6,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.training.salestaxes.calculation.TaxCalculation;
 import com.training.salestaxes.items.Book;
 import com.training.salestaxes.items.Product;
 
