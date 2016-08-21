@@ -23,7 +23,7 @@ public class BasketCalculation
 	}
 
 
-	public double calculateTotalPrice(List<BasketEntry> basketEntries)
+	public BigDecimal calculateTotalPrice(List<BasketEntry> basketEntries)
 	{
 		BigDecimal result = BigDecimal.ZERO;
 		for (BasketEntry entry: basketEntries)
@@ -32,7 +32,7 @@ public class BasketCalculation
 			BigDecimal pricePerUnit = item.getPrice().multiply(BigDecimal.valueOf(entry.getQuantity()));
 			result = result.add(pricePerUnit.add(applyTaxes(item)));
 		}
-		return result.doubleValue();
+		return result;
 	}
 
 

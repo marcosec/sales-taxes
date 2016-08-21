@@ -42,7 +42,7 @@ public class Basket
 		basketEntries.addAll(entries);
 	}
 
-	public double totalPrice()
+	public BigDecimal totalPrice()
 	{
 		return basketCalculation.calculateTotalPrice(getBasketEntries());
 	}

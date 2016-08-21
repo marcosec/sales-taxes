@@ -79,7 +79,8 @@ public class BasketCalculationTest
 		BasketEntry entry3 = new BasketEntry(1, chocolate);
 
 
-		assertEquals(29.83d, basketCalculation.calculateTotalPrice(Arrays.asList(entry1,entry2,entry3)), 0);
+		BigDecimal actual = basketCalculation.calculateTotalPrice(Arrays.asList(entry1, entry2, entry3));
+		assertEquals(0, actual.compareTo(BigDecimal.valueOf(29.83d)));
 	}
 
 	@Test
@@ -106,7 +107,8 @@ public class BasketCalculationTest
 		BasketEntry entry1 = new BasketEntry(1, importedChocolate);
 		BasketEntry entry2 = new BasketEntry(1, importedPerfume);
 
-		assertEquals(65.15d,  basketCalculation.calculateTotalPrice(Arrays.asList(entry1,entry2)), 0);
+		BigDecimal actual = basketCalculation.calculateTotalPrice(Arrays.asList(entry1, entry2));
+		assertEquals(0, actual.compareTo(BigDecimal.valueOf(65.15d)));
 	}
 
 	@Test
@@ -135,7 +137,8 @@ public class BasketCalculationTest
 		BasketEntry entry3 = new BasketEntry(1, bottlePerfume);
 		BasketEntry entry4 = new BasketEntry(1, pills);
 
-		assertEquals(74.68d, basketCalculation.calculateTotalPrice(Arrays.asList(entry1,entry2,entry3,entry4)), 0);
+		BigDecimal actual = basketCalculation.calculateTotalPrice(Arrays.asList(entry1, entry2, entry3, entry4));
+		assertEquals(0, actual.compareTo(BigDecimal.valueOf(74.68d)));
 	}
 
 	@Test
