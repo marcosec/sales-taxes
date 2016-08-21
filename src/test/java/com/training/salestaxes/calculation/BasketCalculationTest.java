@@ -22,6 +22,45 @@ public class BasketCalculationTest
 		basketCalculation = new BasketCalculation();
 	}
 
+	@Test
+	public void shouldCalculateTotalPriceForEntry_taxesExempt()
+	{
+		Product book = new Book("book", 12.49d);
+
+		BasketEntry entry1 = new BasketEntry(1, book);
+
+		assertEquals(12.49d, basketCalculation.calculateTotalPriceForEntry(entry1),0);
+	}
+
+	@Test
+	public void shouldCalculateTotalPriceForEntry_notTaxesExempt()
+	{
+		Product musicCd = new Product("music cd", 14.99d);
+
+		BasketEntry entry1 = new BasketEntry(1, musicCd);
+
+		assertEquals(16.49d, basketCalculation.calculateTotalPriceForEntry(entry1),0);
+	}
+
+	@Test
+	public void shouldCalculateTotalPriceForEntry_noTaxExemptAndImported()
+	{
+		Product importedPerfume = new Product("imported perfume", 47.50d,true);
+
+		BasketEntry entry1 = new BasketEntry(1, importedPerfume);
+
+		assertEquals(54.65, basketCalculation.calculateTotalPriceForEntry(entry1),0);
+	}
+
+	@Test
+	public void shouldCalculateTotalPriceForEntry_taxExemptAndImported()
+	{
+		Product importedChocolate = new Food("imported chocolate", 10.00d,true);
+
+		BasketEntry entry1 = new BasketEntry(1, importedChocolate);
+
+		assertEquals(10.50, basketCalculation.calculateTotalPriceForEntry(entry1),0);
+	}
 
 	@Test
 	public void shouldReturnBasketTotalPrice_input1()

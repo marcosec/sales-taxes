@@ -56,4 +56,9 @@ public class BasketCalculation
 		}
 		return result;
 	}
+
+	public double calculateTotalPriceForEntry(BasketEntry entry)
+	{
+		return entry.getProduct().getPrice().add(applyTaxes(entry.getProduct())).doubleValue();
+	}
 }
