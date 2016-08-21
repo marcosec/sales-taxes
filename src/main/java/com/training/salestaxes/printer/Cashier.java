@@ -6,7 +6,7 @@ import com.training.salestaxes.basket.BasketEntry;
 /**
  * Created by marcosec on 21/08/16.
  */
-public class ReciptPrinter
+public class Cashier
 {
 	public String printReciptFor(Basket basket)
 	{
