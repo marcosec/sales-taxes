@@ -1,6 +1,8 @@
 package com.training.salestaxes.calculation;
 
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -24,9 +26,9 @@ public class ImportTaxCalculationTest
 	{
 		Product importedProduct = new Product("imported-product",10.0d,true);
 
-		double taxValue = importTaxCalculation.calculateTaxesOn(importedProduct);
+		BigDecimal taxValue = importTaxCalculation.calculateTaxesOn(importedProduct);
 
-		assertEquals(0.5d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.valueOf(0.5d)));
 	}
 
 	@Test
@@ -34,9 +36,9 @@ public class ImportTaxCalculationTest
 	{
 		Product notImportedProduct = new Book("not-imported-product",10.0d);
 
-		double taxValue = importTaxCalculation.calculateTaxesOn(notImportedProduct);
+		BigDecimal taxValue = importTaxCalculation.calculateTaxesOn(notImportedProduct);
 
-		assertEquals(0.0d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.ZERO));
 	}
 
 	@Test
@@ -44,8 +46,8 @@ public class ImportTaxCalculationTest
 	{
 		Product importedProduct = new Book("imported-product",10.99d,true);
 
-		double taxValue = importTaxCalculation.calculateTaxesOn(importedProduct);
+		BigDecimal taxValue = importTaxCalculation.calculateTaxesOn(importedProduct);
 
-		assertEquals(0.55d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.valueOf(0.55d)));
 	}
 }

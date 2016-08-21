@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.training.salestaxes.calculation.BasketCalculation;
+import com.training.salestaxes.calculation.BasketCalculator;
 import com.training.salestaxes.calculation.ImportTaxCalculation;
 import com.training.salestaxes.calculation.SalesTaxCalculation;
 
@@ -19,7 +20,7 @@ public class Basket
 	{
 		basketEntries = new ArrayList<BasketEntry>();
 
-		basketCalculation = new BasketCalculation(Arrays.asList(new ImportTaxCalculation(), new SalesTaxCalculation()));
+		basketCalculation = new BasketCalculator(Arrays.asList(new ImportTaxCalculation(), new SalesTaxCalculation()));
 	}
 
 	public void addEntry(BasketEntry entry)

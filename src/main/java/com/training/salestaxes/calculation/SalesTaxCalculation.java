@@ -1,12 +1,13 @@
 package com.training.salestaxes.calculation;
 
+import java.math.BigDecimal;
 import com.training.salestaxes.items.Product;
 
 public class SalesTaxCalculation implements TaxCalculation
 {
-	public double calculateTaxesOn(Product product)
+	public BigDecimal calculateTaxesOn(Product product)
 	{
-		return product.isExemptFromTaxes() ? 0.0d : RoundingStrategy.roundUp(product.getPrice(),10);
+		return product.isExemptFromTaxes() ? BigDecimal.ZERO : RoundingStrategy.roundUp(product.getPrice(),10);
 	}
 
 }

@@ -1,6 +1,8 @@
 package com.training.salestaxes.calculation;
 
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -26,9 +28,9 @@ public class SalesTaxCalculationTest
 	{
 		Product notExemptProduct = new Product("not-exempt-product",10.0d);
 
-		double taxValue = salesTaxCalculation.calculateTaxesOn(notExemptProduct);
+		BigDecimal taxValue = salesTaxCalculation.calculateTaxesOn(notExemptProduct);
 
-		assertEquals(1.0d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.ONE));
 	}
 
 	@Test
@@ -36,9 +38,9 @@ public class SalesTaxCalculationTest
 	{
 		Product book = new Book("exempt-product",10.0d);
 
-		double taxValue = salesTaxCalculation.calculateTaxesOn(book);
+		BigDecimal taxValue = salesTaxCalculation.calculateTaxesOn(book);
 
-		assertEquals(0.0d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.ZERO));
 	}
 
 	@Test
@@ -46,9 +48,9 @@ public class SalesTaxCalculationTest
 	{
 		Product food = new Food("exempt-product",10.0d);
 
-		double taxValue = salesTaxCalculation.calculateTaxesOn(food);
+		BigDecimal taxValue = salesTaxCalculation.calculateTaxesOn(food);
 
-		assertEquals(0.0d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.ZERO));
 	}
 
 	@Test
@@ -56,9 +58,9 @@ public class SalesTaxCalculationTest
 	{
 		Product medical = new Medical("exempt-product",10.0d);
 
-		double taxValue = salesTaxCalculation.calculateTaxesOn(medical);
+		BigDecimal taxValue = salesTaxCalculation.calculateTaxesOn(medical);
 
-		assertEquals(0.0d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.ZERO));
 	}
 
 	@Test
@@ -66,9 +68,9 @@ public class SalesTaxCalculationTest
 	{
 		Product notExemptProduct = new Product("not-exempt-product",14.99d);
 
-		double taxValue = salesTaxCalculation.calculateTaxesOn(notExemptProduct);
+		BigDecimal taxValue = salesTaxCalculation.calculateTaxesOn(notExemptProduct);
 
 
-		assertEquals(1.50d, taxValue, 0);
+		assertEquals(0, taxValue.compareTo(BigDecimal.valueOf(1.50d)));
 	}
 }

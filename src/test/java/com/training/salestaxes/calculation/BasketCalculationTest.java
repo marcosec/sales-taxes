@@ -20,7 +20,7 @@ public class BasketCalculationTest
 	@Before
 	public void setup()
 	{
-		basketCalculation = new BasketCalculation();
+		basketCalculation = new BasketCalculator();
 	}
 
 	@Test

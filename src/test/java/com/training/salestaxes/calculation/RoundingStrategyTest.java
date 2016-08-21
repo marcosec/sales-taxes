@@ -21,32 +21,16 @@ public class RoundingStrategyTest
 	@Test
 	public void shouldRoundToNearestHalf_Up()
 	{
-		double roundedValue = roundingStrategy.roundUp(BigDecimal.valueOf(14.99), 10);
+		BigDecimal roundedValue = roundingStrategy.roundUp(BigDecimal.valueOf(14.99), 10);
 
-		assertEquals(1.5d, roundedValue, 0);
+		assertEquals(0, roundedValue.compareTo(BigDecimal.valueOf(1.5d)));
 	}
 
 	@Test
 	public void shouldRoundToNearestHalf_Down()
 	{
-		double roundedValue = roundingStrategy.roundUp(BigDecimal.valueOf(14.21), 10);
+		BigDecimal roundedValue = roundingStrategy.roundUp(BigDecimal.valueOf(14.21), 10);
 
-		assertEquals(1.45d, roundedValue, 0);
-	}
-
-	@Test
-	public void shouldTruncateToTwoDecimalDigits_halfDown()
-	{
-		double roundedValue = roundingStrategy.roundTwoDecimal(14.233333d);
-
-		assertEquals(14.23d, roundedValue, 0);
-	}
-
-	@Test
-	public void shouldTruncateToTwoDecimalDigits_halfUp()
-	{
-		double roundedValue = roundingStrategy.roundTwoDecimal(14.23854d);
-
-		assertEquals(14.24d, roundedValue, 0);
+		assertEquals(0, roundedValue.compareTo(BigDecimal.valueOf(1.45d)));
 	}
 }
