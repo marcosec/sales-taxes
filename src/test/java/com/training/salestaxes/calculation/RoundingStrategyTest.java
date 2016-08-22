@@ -10,12 +10,12 @@ import org.junit.Test;
 public class RoundingStrategyTest
 {
 
-	private RoundingStrategy roundingStrategy;
+	private NearestHalfRoundingStrategy roundingStrategy;
 
 	@Before
 	public void setup()
 	{
-		roundingStrategy = new RoundingStrategy();
+		roundingStrategy = new NearestHalfRoundingStrategy();
 	}
 
 	@Test

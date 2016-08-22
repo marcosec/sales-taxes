@@ -10,11 +10,6 @@ public class BasketCalculator implements BasketCalculation
 {
 	private List<TaxCalculation> taxCalculationStrategies;
 
-	public BasketCalculator(List<TaxCalculation> taxCalculationStrategies)
-	{
-		this.taxCalculationStrategies = taxCalculationStrategies;
-	}
-
 	public BasketCalculator()
 	{
 		taxCalculationStrategies = new ArrayList<TaxCalculation>();
@@ -47,6 +42,11 @@ public class BasketCalculator implements BasketCalculation
 		return result;
 	}
 
+	public BigDecimal calculateTotalPriceForEntry(BasketEntry entry)
+	{
+		return entry.getProduct().getPrice().add(applyTaxes(entry.getProduct()));
+	}
+
 	private BigDecimal applyTaxes(Product item)
 	{
 		BigDecimal result = BigDecimal.ZERO;
@@ -58,8 +58,4 @@ public class BasketCalculator implements BasketCalculation
 		return result;
 	}
 
-	public BigDecimal calculateTotalPriceForEntry(BasketEntry entry)
-	{
-		return entry.getProduct().getPrice().add(applyTaxes(entry.getProduct()));
-	}
 }

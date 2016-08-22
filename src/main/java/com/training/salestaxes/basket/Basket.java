@@ -20,7 +20,7 @@ public class Basket
 	{
 		basketEntries = new ArrayList<BasketEntry>();
 
-		basketCalculation = new BasketCalculator(Arrays.asList(new ImportTaxCalculation(), new SalesTaxCalculation()));
+		basketCalculation = new BasketCalculator();
 	}
 
 	public void addEntry(BasketEntry entry)
